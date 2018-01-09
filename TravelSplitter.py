@@ -13,11 +13,14 @@
 # output:
 # payments from between persons
 class splitter(object):
+    
     def __init__(self):
         self.persons = set()
         self.items = dict()
+        
     def addPerson(self, person):
         self.persons.add(person)
+        
     def addItem(self, item, cost, payer, takers):
         # let takers be a set
         if payer not in self.persons:
@@ -28,6 +31,7 @@ class splitter(object):
         if item in self.items:
             return str(item) + " is already in items! Double check!"
         self.items[item] = [payer, takers, cost]
+        
     def Split(self):
         # first create a ledger & initialize
         # definition: person1 owe (need to pay) person2 # of money
