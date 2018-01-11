@@ -63,7 +63,7 @@ class NaiveSplitter(object):
 
 
 ### A smart cost splitter will ouput minimum number of transactions
-class SmartSpliter(object):
+class SmartSplitter(object):
     def __init__(self):
         self.persons = set()
         self.items = dict()
