@@ -101,9 +101,9 @@ class SmartSplitter(object):
         for person in ledger:
             toReceive = ledger[person][0] - ledger[person][1]
             sumToReceive += toReceive
-            if toReceive >= 0:
+            if toReceive > 0:
                 hp.heappush(posHeap, (toReceive, person))
-            else:
+            elif toReceive < 0:
                 hp.heappush(negHeap, (toReceive, person))
         #print(posHeap)
         #print(negHeap)
