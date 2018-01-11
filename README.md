@@ -4,7 +4,10 @@ a python class to split cost between friends
 Example to use the code:
 
 ```python
-grandCanyon = spliter()
+from TravelSplitter import SmartSplitter
+import heapq as hp
+
+grandCanyon = SmartSplitter()
 
 # add persons
 grandCanyon.addPerson('Guodong')
@@ -13,7 +16,6 @@ grandCanyon.addPerson('Xuelian')
 grandCanyon.addPerson('Yanyang')
 grandCanyon.addPerson('Can')
 
-# some cost share groups
 allPersons = {'Guodong', 'Yu', 'Xuelian', 'Yanyang', 'Can'}
 girls = {'Xuelian', 'Yanyang', 'Can'}
 boys = {'Guodong', 'Yu'}
@@ -43,31 +45,14 @@ grandCanyon.addItem('SafeWay+Parking', 69.57, 'Xuelian', allPersons)
 grandCanyon.addItem('Uber', 25.48 + 16.65, 'Xuelian', ubers)
 
 finalPay = grandCanyon.Split()
+finalPay
 ```
 output:
 ```python
-Yanyang owe Yu 12.584
-Yanyang owe Xuelian 190.004
-Yanyang owe Guodong 165.76
-Yanyang owe Can 0
-Yu owe Xuelian 194.395
-Yu owe Guodong 153.176
-Can owe Yu 12.584
-Guodong owe Xuelian 55.2623333333
-Can owe Xuelian 175.960666667
-Can owe Guodong 165.76
-
-finalPay:
-{('Can', 'Guodong'): 165.76,
- ('Can', 'Xuelian'): 175.96066666666667,
- ('Can', 'Yu'): 12.584000000000001,
- ('Guodong', 'Xuelian'): 55.26233333333333,
- ('Yanyang', 'Can'): 0,
- ('Yanyang', 'Guodong'): 165.76,
- ('Yanyang', 'Xuelian'): 190.004,
- ('Yanyang', 'Yu'): 12.584000000000001,
- ('Yu', 'Guodong'): 153.176,
- ('Yu', 'Xuelian'): 194.39499999999998}
+{('Can', 'Guodong'): 107.03066666666666,
+ ('Can', 'Xuelian'): 247.27399999999983,
+ ('Yanyang', 'Xuelian'): 368.348,
+ ('Yu', 'Guodong'): 322.403}
 ```
 
 
